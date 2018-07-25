@@ -25,6 +25,6 @@ module.exports = {
       provider: () => {
         return BitskiTruffleProvider("rinkeby", BitskiConfig.appWallet)
       }
-    }
+    },
   }
 };
