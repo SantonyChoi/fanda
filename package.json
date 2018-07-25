@@ -10,6 +10,7 @@
         "dev": "webpack-dev-server --mode development --port 3000 --env.network development"
     },
     "dependencies": {
+        "@0xcert/ethereum-erc721": "^1.10.0",
         "babel-core": "^6.26.0",
         "babel-loader": "^7.1.4",
         "babel-preset-env": "^1.6.1",
