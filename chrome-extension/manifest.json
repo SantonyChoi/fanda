@@ -2,7 +2,7 @@
  "manifest_version": 2,
  "name": "Fanda",
  "description": "Democratizing Fanbase of Celebrities",
- "version": "1",
+ "version": "1.1",
  "author": "William Ma",
  "background": {
          "scripts": ["background.js"],
