@@ -1,13 +1,6 @@
 {
     "scripts": {
-        "build": "truffle migrate; webpack --env.network mainnet",
-        "build-kovan": "truffle migrate --network kovan; webpack --env.network kovan",
-        "build-rinkeby": "truffle migrate --network rinkeby; webpack --env.network rinkeby",
-        "debug": "truffle debug",
-        "debug-kovan": "truffle --network kovan debug",
-        "debug-rinkeby": "truffle --network rinkeby debug",
-        "test": "truffle test",
-        "dev": "webpack-dev-server --mode development --port 3000 --env.network development"
+        "dev": "lite-server"
     },
     "dependencies": {
         "@0xcert/ethereum-erc721": "^1.10.0",
@@ -19,6 +12,7 @@
         "copy-webpack-plugin": "^4.5.1",
         "css-loader": "^0.28.11",
         "extract-text-webpack-plugin": "^4.0.0-beta.0",
+        "lite-server": "^2.4.0",
         "node-sass": "^4.8.3",
         "npm": "^6.0.0",
         "phaser": "^3.6.0",
