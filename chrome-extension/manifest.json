@@ -1,0 +1,28 @@
+{
+ "manifest_version": 2,
+ "name": "Fanda",
+ "description": "Democratizing Fanbase of Celebrities",
+ "version": "1",
+ "author": "William Ma",
+ "background": {
+         "scripts": ["background.js"],
+         "persistent": false
+ },
+ "browser_action": {
+     "default_popup": "missions.html",
+     "default_icon": {
+     	"16": "images/fanda.png",
+        "32": "images/fanda.png",
+        "48": "images/fanda.png",
+        "128": "images/fanda.png"
+      },
+     "default_title": "Fanda"
+ },
+ "icons": {
+     "16": "images/fanda.png",
+     "32": "images/fanda.png",
+     "48": "images/fanda.png",
+     "128": "images/fanda.png"
+ },
+ "permissions": ["activeTab", "declarativeContent","storage","activeTab"]
+}
