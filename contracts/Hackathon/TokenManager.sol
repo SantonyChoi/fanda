@@ -66,4 +66,20 @@ contract TokenManager {
         fanTokens[_typeId].minted += 1;
     }
 
+    function tokensOfOwner(address _owner) external view returns(uint256[] ownerTokens) {
+        uint256 tokenCount = Fanda(tokenAddr).balanceOf(_owner);
+
+        if (tokenCount == 0) {
+            // Return an empty array
+            return new uint256[](0);
+        } else {
+            uint256[] memory result = new uint256[](tokenCount);
+
+            for (uint256 i = 0; i < tokenCount; i++) {
+                result[i] = Fanda(tokenAddr).tokenOfOwnerByIndex(_owner, i);
+            }
+
+            return result;
+        }
+    }
 }
