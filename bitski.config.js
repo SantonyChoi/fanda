@@ -24,7 +24,7 @@ module.exports = {
     // }
     production: {
       network: 'rinkeby', //ethereum network to use for production
-      redirectURL: 'https://localhost:3000/callback.html' //url the popup will redirect to when logged in
+      redirectURL: 'http://localhost:3000/callback.html' //url the popup will redirect to when logged in
     }
   },
   networkIds: {
