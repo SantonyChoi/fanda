@@ -39,7 +39,11 @@ export default class App {
   }
 
   showItems() {
-    this.contractInstance.methods.tokensOfOwner(this.currentAccount).call().then(console.log);
+    this.contractInstance.methods.tokensOfOwner(this.currentAccount).call().then(
+      (items) => {
+        this.cabinetElement.textContent = items;
+      }
+    );
   }
 
   /**
@@ -77,6 +81,7 @@ export default class App {
 
     // Set up list-items
     this.listItemsElement = document.getElementById('list-items');
+    this.cabinetElement = document.getElementById('cabinet');
     this.listItemsElement.addEventListener('click', (event) => {
       event.preventDefault();
       this.showItems();
