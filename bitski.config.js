@@ -5,8 +5,8 @@ module.exports = {
   appWallet: {
     client: {
       //if you have an app wallet, add your client id and secret here
-      id: 'YOUR-APP-WALLET-ClIENT-ID',
-      secret: 'YOUR-APP-WALLET-SECRET'
+      id: '183c85aa-ec18-4267-aada-01825ebdb210',
+      secret: '182QqonEdP88ALF5[Kk57{f+Da9Du0Tf[N8NJqBCh[BDJb5dvIF5I7kymuOBygs+[V'
     },
     auth: {
       tokenHost: 'https://account.bitski.com',

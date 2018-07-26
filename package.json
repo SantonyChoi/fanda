@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "@0xcert/ethereum-erc721": "^1.10.0",
+    "bignumber.js": "^7.2.1",
     "bitski": "^0.1.7",
     "web3": "^1.0.0-beta.34"
   }
