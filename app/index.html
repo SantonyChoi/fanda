@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Example</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <!-- Local CSS file -->
-    <link rel="stylesheet" href="./public/style.css">
-    <meta name="viewport" content="width=device-width">
-  </head>
-  <body>
-    <div class="container">
-      <div id="main" class="pt-5">
-        <h3>Hello World</h3>
-        <p>This is an example webpack app that uses <a href="https://truffleframework.com">Truffle</a> and <a href="https://github.com/BitskiCo/bitski-js">Bitski's SDK</a> to connect to Ethereum.</p>
+
+<head>
+  <title>Fanda</title>
+  <!-- Bootstrap CSS -->
+  <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">-->
+  <!-- Local CSS file -->
+  <link href="./img/favicon.png" rel="shortcut icon" />
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport" />
+  <link href="./css/main.css" rel="stylesheet" type="text/css" />
+  <!--<link rel="stylesheet" href="./public/style.css">-->
+  <meta name="viewport" content="width=device-width">
+</head>
+
+<body style="margin: 0;
+background: rgba(255, 255, 255, 1.0);">
+  <input id="anPageName" name="page" type="hidden" value="main" />
+  <div id="main" class="main">
+    <div style="width: 320px; height: 100%; position:relative; margin:auto;">
+      <div class="container">
+        <p>
+          <a href="https://fanda.launchaco.com/">https://fanda.launchaco.com/</a>
+        </p>
         <hr>
         <p id="error" class="text-danger"></p>
       </div>
@@ -24,10 +35,115 @@
       </div>
       <!-- Signed In Container -->
       <div id='signed-in' style='display:none'>
-        <p>Your wallet address is: <span id="wallet-address" class="text-monospace">Loading...</span></p>
-        <p><button id='log-out' class='btn btn-sm btn-secondary'>Log Out</button></p>
-        <p><button id='send-test' class='btn btn-sm btn-secondary'>Send Test</button></p>
+        <p>Your wallet address is:
+          <span id="wallet-address" class="text-monospace">Loading...</span>
+        </p>
+        <p>
+          <button id='log-out' class='btn btn-sm btn-secondary'>Log Out</button>
+        </p>
+        <p>
+          <button id='send-test' class='btn btn-sm btn-secondary'>Send Test</button>
+        </p>
+        <p>
+          <button id='list-items' class='btn btn-sm btn-secondary'>List Test</button>
+        </p>
+        <!-- <div id='list-items'>items here</div> -->
+      </div>
+      <p class="fandarequiresyout">Fanda requires you to log in :(</p>
+      <img anima-src="./img/main-log-in.png" class="login" id="connect-button" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+      />
+      <!--<img anima-src="./img/main-log-in.png" class="login" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>-->
+      <!--<img anima-src="./img/main-fanda-requires-you-t.png" class="fandarequiresyout" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="/>-->
+      <div class="topnav">
+        <div class="fandatopnav">
+          <div class="rectangle">
+          </div>
+          <img anima-src="./img/main-crown@2x.png" class="crown" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+          />
+          <div class="fanda">
+            Fanda
+          </div>
+        </div>
       </div>
     </div>
-  </body>
+  </div>
+  <!-- Scripts -->
+  <script>
+    anima_isHidden = function (e) {
+      if (!(e instanceof HTMLElement)) return !1;
+      if (getComputedStyle(e).display == "none") return !0; else if (e.parentNode && anima_isHidden(e.parentNode)) return !0;
+      return !1;
+    };
+    anima_loadAsyncSrcForTag = function (tag) {
+      var elements = document.getElementsByTagName(tag);
+      var toLoad = [];
+      for (var i = 0; i < elements.length; i++) {
+        var e = elements[i];
+        var src = e.getAttribute("src");
+        var loaded = (src != undefined && src.length > 0 && src != 'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==');
+        if (loaded) continue;
+        var asyncSrc = e.getAttribute("anima-src");
+        if (asyncSrc == undefined || asyncSrc.length == 0) continue;
+        if (anima_isHidden(e)) continue;
+        toLoad.push(e);
+      }
+      toLoad.sort(function (a, b) {
+        return anima_getTop(a) - anima_getTop(b);
+      });
+      for (var i = 0; i < toLoad.length; i++) {
+        var e = toLoad[i];
+        var asyncSrc = e.getAttribute("anima-src");
+        e.setAttribute("src", asyncSrc);
+      }
+    };
+    anima_pauseHiddenVideos = function (tag) {
+      var elements = document.getElementsByTagName("video");
+      for (var i = 0; i < elements.length; i++) {
+        var e = elements[i];
+        var isPlaying = !!(e.currentTime > 0 && !e.paused && !e.ended && e.readyState > 2);
+        var isHidden = anima_isHidden(e);
+        if (!isPlaying && !isHidden && e.getAttribute("autoplay") == "autoplay") {
+          e.play();
+        } else if (isPlaying && isHidden) {
+          e.pause();
+        }
+      }
+    };
+    anima_loadAsyncSrc = function (tag) {
+      anima_loadAsyncSrcForTag("img");
+      anima_loadAsyncSrcForTag("iframe");
+      anima_loadAsyncSrcForTag("video");
+      anima_pauseHiddenVideos();
+    };
+    var anima_getTop = function (e) {
+      var top = 0;
+      do {
+        top += e.offsetTop || 0;
+        e = e.offsetParent;
+      } while (e);
+      return top;
+    };
+    anima_loadAsyncSrc();
+    anima_old_onResize = window.onresize;
+    anima_new_onResize = undefined;
+    anima_updateOnResize = function () {
+      if (anima_new_onResize == undefined || window.onresize != anima_new_onResize) {
+        anima_new_onResize = function (x) {
+          if (anima_old_onResize != undefined) anima_old_onResize(x);
+          anima_loadAsyncSrc();
+        };
+        window.onresize = anima_new_onResize;
+        setTimeout(function () {
+          anima_updateOnResize();
+        }, 3000);
+      }
+    };
+    anima_updateOnResize();
+    setTimeout(function () {
+      anima_loadAsyncSrc();
+    }, 200);
+  </script>
+  <!-- End of Scripts -->
+</body>
+
 </html>

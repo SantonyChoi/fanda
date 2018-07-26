@@ -35,7 +35,7 @@ export default class App {
   }
 
   testSend() {
-    this.contractInstance.methods.mintFanda(this.web3.utils.toBN("10")).send({from: this.currentAccount, gas: 2000000});
+    this.contractInstance.methods.mintFanda(this.web3.utils.toBN("10")).send({ from: this.currentAccount, gas: 2000000 });
   }
 
   /**

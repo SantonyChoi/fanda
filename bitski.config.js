@@ -14,14 +14,14 @@ module.exports = {
     }
   },
   environments: {
-    // development: {
-    //   network: 'development', //ethereum network to use for local dev
-    //   redirectURL: 'http://localhost:3000/callback.html' //url the popup will redirect to when logged in
-    // },
-    // production: {
-    //   network: 'kovan', //ethereum network to use for production
-    //   redirectURL: 'https://mydomain.com/callback.html' //url the popup will redirect to when logged in
-    // }
+    development: {
+      network: 'development', //ethereum network to use for local dev
+      redirectURL: 'http://localhost:3000/callback.html' //url the popup will redirect to when logged in
+    },
+    production: {
+      network: 'kovan', //ethereum network to use for production
+      redirectURL: 'https://mydomain.com/callback.html' //url the popup will redirect to when logged in
+    },
     production: {
       network: 'rinkeby', //ethereum network to use for production
       redirectURL: 'https://localhost:3000/callback.html' //url the popup will redirect to when logged in
