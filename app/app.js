@@ -38,6 +38,10 @@ export default class App {
     this.contractInstance.methods.mintFanda(this.web3.utils.toBN("10")).send({from: this.currentAccount, gas: 2000000});
   }
 
+  showItems() {
+    this.contractInstance.methods.tokensOfOwner(this.currentAccount).call().then(console.log);
+  }
+
   /**
    * One-time setup of the interface.
    */
@@ -69,6 +73,13 @@ export default class App {
     this.sendTestButton.addEventListener('click', (event) => {
       event.preventDefault();
       this.testSend();
+    });
+
+    // Set up list-items
+    this.listItemsElement = document.getElementById('list-items');
+    this.listItemsElement.addEventListener('click', (event) => {
+      event.preventDefault();
+      this.showItems();
     });
   }
 
